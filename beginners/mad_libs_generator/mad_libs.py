@@ -1,0 +1,20 @@
+
+holiday = input("Enter a holiday: ")
+noun_1 = input("Enter your first noun: ")
+place = input("Enter a place: ")
+person = input("Enter a person: ")
+adj_1 = input("Enter your first adjective: ")
+verb = input("Enter a verb: ")
+adj_2 = input("Enter a second adjective: ")
+body_part = input("Give me a body part (plural): ")
+noun_2 = input("Enter noun number 2: ")
+food = input("Enter a food: ")
+pl_noun = input("Enter a plural noun: ")
+
+print("HALLOWEEN MAD LIBS")
+print("I can't believe it's already " + holiday.title() + "!")
+print("I can't wait to put on my " + noun_1 + " and visit every " + place + " in my neighborhood.")
+print("This year, I am going to dress up as (a) " + person + " with " + adj_1, body_part + ".")
+print("Before I " + verb + ", I make sure to grab my " + adj_2, noun_2 + " to hold all of my " + food + ".")
+print("Finally, all my " + pl_noun + " are ready to go!")
+
