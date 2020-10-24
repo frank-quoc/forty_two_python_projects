@@ -11,7 +11,7 @@ class Item:
 class Dollars(Item):
     def __init__(self, amt):
         self.amt = amt
-        super().__init__(name='Dollars', description=f'A red color mineral that shines {str(self.amt)}.', 
+        super().__init__(name='Dollars', description=f'Found {str(self.amt)} dollars. Money Money.', 
             value=self.amt)
 
 class Weapon(Item):

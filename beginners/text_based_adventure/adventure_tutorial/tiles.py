@@ -1,4 +1,4 @@
-import items, enemies
+import items, enemies, actions, world
 
 class MapTile: # Abstract base classes never get instances of it created
     """An abstract base class for Tiles."""
@@ -11,6 +11,27 @@ class MapTile: # Abstract base classes never get instances of it created
 
     def modify_player(self, player):
         raise NotImplementedError()
+
+    def adjacent_moves(self):
+        """Returns all moves for the action tiles."""
+        moves = []
+        if world.tile_exists(self.x + 1, self.y):
+            moves.append(actions.MoveEast())
+        if world.tile_exists(self.x - 1, self.y):
+            moves.append(actions.MoveWest())
+        if world.tile_exists(self.x, self.y + 1):
+            moves.append(actions.MoveSouth())
+        if world.tile_exists(self.x, self.y - 1):
+            moves.append(actions.MoveNorth())
+        
+        return moves
+
+    def available_actions(self):
+        """Returns all of the available actions in this room."""
+        moves = self.adjacent_moves()
+        moves.append(actions.ViewInventory())
+
+        return moves
 
 class StartingRoom(MapTile):
     def intro_text(self):
@@ -38,11 +59,17 @@ class EnemyRoom(MapTile):
     def __init__(self, x, y, enemy):
         self.enemy = enemy
         super().__init__(x, y)
-
+ 
     def modify_player(self, the_player):
         if self.enemy.is_alive():
-            the_player.hp -= self.enemy.damage
-            print(f"Enemy does {self.enemy.damage}. You have {the_player.hp} HP left.")
+            the_player.hp = the_player.hp - self.enemy.damage
+            print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, the_player.hp))
+ 
+    def available_actions(self):
+        if self.enemy.is_alive():
+            return [actions.Flee(tile=self), actions.Attack(enemy=self.enemy)]
+        else:
+            return self.adjacent_moves()
 
 class EmptyHousePath(MapTile):
     def __init__(self):
@@ -75,20 +102,22 @@ class EvilGrampaJoesRoom(EnemyRoom):
     def  intro_text(self):
         if self.enemy.is_alive():
             return """
-            Man. It's your exes Grampa Joe. You hated him. He's using his cane to wack you again.
+            Man. It's your ex's Grampa Joe. You hate him because he kicks dogs. 
+            He's using his cane to wack you again.
             """
         else:
             return """
             Well, you did it. You put Grampa Joe in a coma. He was a jerk anyways.
             """   
 
-class FindBlackGloveRoom(LootRoom):
+class Find5DollarsRoom(LootRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, items.BlackGlove())
+        super().__init__(x, y, items.Dollars())
 
     def intro_text(self):
         return """
-        There's no weapons in the room. Guess this random, petite black glove will do.
+        Woot woot. You found 5 dollars on the ground. Today, is a lucky day. 
+        Cept for the whole kidnapping thing.
         """
 
 class FindBat(LootRoom):
@@ -100,3 +129,14 @@ class FindBat(LootRoom):
         It's your favorite bat. You knew it. Your ex stole it to spite you. So, petty.
         """
 
+class LeaveHouseRoom(MapTile):
+    def intro_text(self):
+        return """
+        You finally find the backdoor. Thank god.
+        What happened last night? Did your ex kidnap you?
+        Well, at least you're free. Time to go to the police.
+        Or, home to sleep.
+        """
+ 
+    def modify_player(self, player):
+        player.victory = True

@@ -1,0 +1,8 @@
+			LeaveHouseRoom	
+	Find5DollarsRoom	EmptyHousePath	TwoHeadedMonkeyRoom	
+		EmptyHousePath		
+		EmptyHousePath		
+TwoHeadedMonkeyRoom	EmptyHousePath	StartingRoom	EmptyHousePath	FindBatRoom
+		Find5DollarsRoom		
+		EmptyHousePath		
+		EvilGrampaJoe		
