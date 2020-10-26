@@ -3,7 +3,7 @@ import items, world
 
 class Player:
     def __init__(self):
-        self.inventory = [items.Dollars, items.Glove()]
+        self.inventory = [items.Dollars(15), items.Glove()]
         self.hp = 100
         self.location_x, self.location_y = world.starting_position
         self.victory = False

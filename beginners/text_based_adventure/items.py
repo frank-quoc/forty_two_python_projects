@@ -11,7 +11,7 @@ class Item:
 class Dollars(Item):
     def __init__(self, amt):
         self.amt = amt
-        super().__init__(name='Dollars', description=f'You have {str(self.amt)} dollars. Money Money.', 
+        super().__init__(name='Dollars', description=f'A red color mineral that shines {str(self.amt)}.', 
             value=self.amt)
 
 class Weapon(Item):
@@ -20,11 +20,11 @@ class Weapon(Item):
         super().__init__(name, description, value)
 
     def __str__(self):
-        return f"\n{self.name}\n======\n{self.description}\nValue: {self.value}\nDamage: {self.damage}"
+        return f"{self.name}\n======\n{self.description}\nValue: {self.value}\nDamage: {self.damage}"
 
-class Glove(Weapon):
+class BlackGlove(Weapon):
     def __init__(self):
-        super().__init__(name='Glove', description=f'A black glove. You can glove-slap someone in the face', 
+        super().__init__(name='Black Glove', description=f'A black glove. You can glove-slap someone in the face', 
             value=0, damage=5)
 
 class Bat(Weapon):

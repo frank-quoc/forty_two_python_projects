@@ -5,4 +5,4 @@
 TwoHeadedMonkeyRoom	EmptyHousePath	StartingRoom	EmptyHousePath	FindBatRoom
 		Find5DollarsRoom		
 		EmptyHousePath		
-		EvilGrampaJoe		
+		EvilGrampaJoesRoom		

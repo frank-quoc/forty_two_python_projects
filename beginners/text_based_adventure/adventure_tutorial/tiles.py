@@ -1,4 +1,4 @@
-import items, enemies, actions, world
+import items, enemies, actions, world, player
 
 class MapTile: # Abstract base classes never get instances of it created
     """An abstract base class for Tiles."""
@@ -36,8 +36,9 @@ class MapTile: # Abstract base classes never get instances of it created
 class StartingRoom(MapTile):
     def intro_text(self):
         return """
-        You wake up on the floor of your ex's living room. If you never had one, just use your imagination.
-        She's not around. The room is dark and for the dining room table is smashed to pieces.
+        You're in your ex's living room. If you never had one, just use your imagination.
+        She's not around. There's no way to the front door because some stuff is blocking it.
+        Got to find the back door, I guess.
         """
 
     def modify_player(self, player):
@@ -63,7 +64,7 @@ class EnemyRoom(MapTile):
     def modify_player(self, the_player):
         if self.enemy.is_alive():
             the_player.hp = the_player.hp - self.enemy.damage
-            print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, the_player.hp))
+            print(f"Enemy does {self.enemy.damage} damage. You have {the_player.hp} HP remaining.")
  
     def available_actions(self):
         if self.enemy.is_alive():
@@ -72,7 +73,7 @@ class EnemyRoom(MapTile):
             return self.adjacent_moves()
 
 class EmptyHousePath(MapTile):
-    def __init__(self):
+    def intro_text(self):
         return """
         Nothing to see here. Just a dead body. Walk over it.
         """
@@ -112,15 +113,18 @@ class EvilGrampaJoesRoom(EnemyRoom):
 
 class Find5DollarsRoom(LootRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, items.Dollars())
+        super().__init__(x, y, items.Dollars(5))
 
     def intro_text(self):
         return """
         Woot woot. You found 5 dollars on the ground. Today, is a lucky day. 
         Cept for the whole kidnapping thing.
         """
+    
+    def update_inv(self):
+        player.Player.inventory[0] += self.items.Dollars(5)
 
-class FindBat(LootRoom):
+class FindBatRoom(LootRoom):
     def __init__(self, x, y):
         super().__init__(x, y, items.Bat())
 
