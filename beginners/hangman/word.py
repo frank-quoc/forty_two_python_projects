@@ -3,7 +3,7 @@ import random
 WORDLIST = 'wordlist.txt'
 
 def get_random_word():
-    """Get a random word from a huge text file using reservoir sampling."""
+    """Generate a random word from wordlist.txt using reservoir sampling."""
     words_counter = 0
     curr_word = None
     with open(WORDLIST, 'r') as f:
@@ -16,4 +16,4 @@ def get_random_word():
             words_counter += 1
             if random.randint(1, words_counter) == 1:
                 curr_word = word
-    return curr_word
+        return curr_word 
