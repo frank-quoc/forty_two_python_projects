@@ -51,6 +51,5 @@ def hangman_game():
     win_condition(wrong_answers, idxs, remaining_letters, win_cond)
 
 if __name__ == '__main__':
-    print(RANDOM_WORD)
     while hangman_game():
         print()
