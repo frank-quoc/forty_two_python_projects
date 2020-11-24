@@ -48,9 +48,13 @@ def hangman_game():
 
     print("Welcome to a game of hangman where you have 5 chances to win the game.")
     display_board(wrong_answers, idxs)
-    win_condition(wrong_answers, idxs, remaining_letters, win_cond)
+    win_cond = win_condition(wrong_answers, idxs, remaining_letters, win_cond)
+
+    if win_cond == True:
+        print("EZPZ. You won.")
+    else: 
+        print(f"You lost! The word was {RANDOM_WORD}.")
 
 if __name__ == '__main__':
-    print(RANDOM_WORD)
     while hangman_game():
         print()
