@@ -39,7 +39,7 @@ Clone:
 git clone https://github.com/frank-quoc/forty_two_python_projects.git
 ```
 
-Navigate to ```/home/frank_quoc/forty_two_python_projects/beginners/youtube_vid_dl``` and run ```youtube_vid_dl.py```
+Navigate to ```~/forty_two_python_projects/beginners/youtube_vid_dl``` and run ```youtube_vid_dl.py```
 
 ## Credits
 
