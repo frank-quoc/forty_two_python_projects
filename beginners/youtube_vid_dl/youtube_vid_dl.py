@@ -1,7 +1,7 @@
 from pytube import YouTube
 
 # Path to save youtube file to
-SAVE_PATH = '/home/frank_quoc/forty_two_python_projects/beginners/youtube_vid_dl'
+SAVE_PATH = '/home/frank_quoc/forty_two_python_projects/beginners/youtube_vid_dl' # place filepath of your desired directory between quotation marks
 
 def dl_youtube_vid(link):
     """Takes in youtube link and downloads to the path file directory above."""
