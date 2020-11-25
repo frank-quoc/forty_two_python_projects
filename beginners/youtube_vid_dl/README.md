@@ -34,10 +34,12 @@ Install Pytube:
 $ pip install pytube
 ```
 
-Clone and navigate to ```/home/frank_quoc/forty_two_python_projects/beginners/youtube_vid_dl``` and run ```youtube_vid_dl.py```:
+Clone: 
 ```
-https://github.com/frank-quoc/forty_two_python_projects.git
+git clone https://github.com/frank-quoc/forty_two_python_projects.git
 ```
+
+Navigate to ```/home/frank_quoc/forty_two_python_projects/beginners/youtube_vid_dl``` and run ```youtube_vid_dl.py```
 
 ## Credits
 
