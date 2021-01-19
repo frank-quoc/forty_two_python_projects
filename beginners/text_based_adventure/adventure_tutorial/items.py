@@ -8,7 +8,7 @@ class Item:
     def __str__(self):
         return f"{self.name}\n======\n{self.description}\nValue: {self.value}\n"
 
-class Dollars(Item):
+class Rubies(Item):
     def __init__(self, amt):
         self.amt = amt
         super().__init__(name='Dollars', description=f'You have {str(self.amt)} dollars. Money Money.', 
@@ -22,11 +22,11 @@ class Weapon(Item):
     def __str__(self):
         return f"\n{self.name}\n======\n{self.description}\nValue: {self.value}\nDamage: {self.damage}"
 
-class Glove(Weapon):
+class Banana(Weapon):
     def __init__(self):
-        super().__init__(name='Glove', description=f'A black glove. You can glove-slap someone in the face', 
+        super().__init__(name='Banana', description=f'Maybe the enemy can slip on this.', 
             value=0, damage=5)
 
-class Bat(Weapon):
+class BallOfYarn(Weapon):
     def __init__(self):
-        super().__init__(name='Bat', description=f'SWING batta batta SWING', value=10, damage=10)
+        super().__init__(name='Ball of Yarn', description=f'Do you throw this at the enemy?', value=10, damage=10)
