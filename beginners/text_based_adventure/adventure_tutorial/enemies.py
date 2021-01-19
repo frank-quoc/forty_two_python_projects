@@ -11,7 +11,7 @@ class TwoHeadedMonkey(Enemy):
     def __init__(self):
         super().__init__(name='Two Headed Monkey', hp=10, damage=2)
 
-class DebtCollector(Enemy):
+class GiantLiger(Enemy):
     def __init__(self):
-        super().__init__(name='Debt Collector', hp=30, damage=15)
+        super().__init__(name='Giant Liger', hp=30, damage=15)
 
