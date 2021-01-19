@@ -8,10 +8,10 @@ class Item:
     def __str__(self):
         return f"{self.name}\n======\n{self.description}\nValue: {self.value}\n"
 
-class Dollars(Item):
+class Ruby(Item):
     def __init__(self, amt):
         self.amt = amt
-        super().__init__(name='Dollars', description=f'A red color mineral that shines {str(self.amt)}.', 
+        super().__init__(name='Ruby', description=f'A red color mineral that shines {str(self.amt)}.', 
             value=self.amt)
 
 class Weapon(Item):
