@@ -36,8 +36,8 @@ class MapTile: # Abstract base classes never get instances of it created
 class StartingRoom(MapTile):
     def intro_text(self):
         return """
-        You're in your ex's living room. If you never had one, just use your imagination.
-        She's not around. There's no way to the front door because some stuff is blocking it.
+        You're in the main tent of an evil circus. 
+        There's no way to the front entrance because there's a giant wooly mammoth asleep blocking it.
         Got to find the back door, I guess.
         """
 
@@ -75,7 +75,7 @@ class EnemyRoom(MapTile):
 class EmptyHousePath(MapTile):
     def intro_text(self):
         return """
-        Nothing to see here. Just a dead body. Walk over it.
+        Nothing to see here. Just a clown eating a pie. Tip toe, so he doesn't notice you.
         """
         
     def modify_player(self, player):
@@ -93,7 +93,7 @@ class TwoHeadedMonkeyRoom(EnemyRoom):
             """
         else:
             return """
-            You beat the two headed monkey until it ran away. No animals were killed in the making of this game.
+            You beat the two headed monkey until it ran away. 
             """
 
 class EvilGrampaJoesRoom(EnemyRoom):
@@ -103,12 +103,11 @@ class EvilGrampaJoesRoom(EnemyRoom):
     def  intro_text(self):
         if self.enemy.is_alive():
             return """
-            Man. It's your ex's Grampa Joe. You hate him because he kicks dogs. 
-            He's using his cane to wack you again.
+            It's a Liger with 3 tails. Is it from hell?
             """
         else:
             return """
-            Well, you did it. You put Grampa Joe in a coma. He was a jerk anyways.
+            Well, you did it. The Liger was coaxed into playing with your ball of yarn.
             """   
 
 class Find5DollarsRoom(LootRoom):
@@ -117,7 +116,7 @@ class Find5DollarsRoom(LootRoom):
 
     def intro_text(self):
         return """
-        Woot woot. You found 5 dollars on the ground. Today, is a lucky day. 
+        Woot woot. You found 5 rubies on the ground. Today, is a lucky day. 
         Cept for the whole kidnapping thing.
         """
     
@@ -130,16 +129,16 @@ class FindBatRoom(LootRoom):
 
     def intro_text(self):
         return """
-        It's your favorite bat. You knew it. Your ex stole it to spite you. So, petty.
+        It's your favorite ball of yarn. Hmmm, wonder what you could do with this?
         """
 
 class LeaveHouseRoom(MapTile):
     def intro_text(self):
         return """
         You finally find the backdoor. Thank god.
-        What happened last night? Did your ex kidnap you?
+        What happened? How did you end up here.?
         Well, at least you're free. Time to go to the police.
-        Or, home to sleep.
+        Or, go home to sleep.
         """
  
     def modify_player(self, player):
