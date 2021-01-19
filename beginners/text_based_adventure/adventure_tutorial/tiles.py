@@ -96,9 +96,9 @@ class TwoHeadedMonkeyRoom(EnemyRoom):
             You beat the two headed monkey until it ran away. 
             """
 
-class EvilGrampaJoesRoom(EnemyRoom):
+class ThreeTailedLigerRoom(EnemyRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, enemies.EvilGrampaJoe())
+        super().__init__(x, y, enemies.ThreeTailedLiger())
 
     def  intro_text(self):
         if self.enemy.is_alive():
@@ -110,7 +110,7 @@ class EvilGrampaJoesRoom(EnemyRoom):
             Well, you did it. The Liger was coaxed into playing with your ball of yarn.
             """   
 
-class Find5DollarsRoom(LootRoom):
+class Find5RubiesRoom(LootRoom):
     def __init__(self, x, y):
         super().__init__(x, y, items.Dollars(5))
 
@@ -121,15 +121,15 @@ class Find5DollarsRoom(LootRoom):
         """
     
     def update_inv(self):
-        player.Player.inventory[0] += self.items.Dollars(5)
+        player.Player.inventory[0] += self.items.Rubies(5)
 
-class FindBatRoom(LootRoom):
+class FindBallofYarnRoom(LootRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, items.Bat())
+        super().__init__(x, y, items.BallOfYarn())
 
     def intro_text(self):
         return """
-        It's your favorite ball of yarn. Hmmm, wonder what you could do with this?
+        It's a ball of yarn. Hmmm, wonder what you could do with this?
         """
 
 class LeaveHouseRoom(MapTile):
